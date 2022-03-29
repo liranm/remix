@@ -8,9 +8,11 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "resolveJsonModule": true,
 
     "declaration": true,
     "emitDeclarationOnly": true,
+    "skipLibCheck": true,
 
     "outDir": "../../build/node_modules/@remix-run/css-modules",
     "rootDir": "."
