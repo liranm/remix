@@ -31,6 +31,10 @@ export function cssModulesPlugin(
       build.onResolve({ filter: suffixMatcher }, async (args) => {
         try {
           if (!parcelTransform) {
+            // We intentionally don't bundle Parcel CSS with @remix-run/dev;
+            // it's loaded lazily as a dependency in @remix-run/css-modules, so
+            // we'll log a console error in the event the it is missing.
+            // eslint-disable-next-line import/no-extraneous-dependencies
             parcelTransform = (await import("@parcel/css")).default.transform;
             console.warn(
               chalk.yellow(`
